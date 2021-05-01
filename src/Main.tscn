@@ -14,14 +14,16 @@ size = Vector2( 100, 100 )
 
 [sub_resource type="Environment" id=2]
 background_mode = 1
+glow_intensity = 1.26
+glow_strength = 2.0
 
 [sub_resource type="OpenSimplexNoise" id=3]
 period = 1.4
 
-[sub_resource type="PhysicsMaterial" id=5]
+[sub_resource type="PhysicsMaterial" id=4]
 bounce = 0.6
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 1.76229, 0.772962, 1.41506 )
 
 [sub_resource type="CubeMesh" id=6]
@@ -144,7 +146,7 @@ transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258
 
 [node name="SailBoat" type="RigidBody" parent="."]
 transform = Transform( -0.997971, 0, -0.0636615, 0, 1, 0, 0.0636615, 0, -0.997971, 0, -0.268, 0 )
-physics_material_override = SubResource( 5 )
+physics_material_override = SubResource( 4 )
 axis_lock_angular_x = true
 axis_lock_angular_z = true
 linear_damp = 1.1
@@ -153,7 +155,7 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SailBoat"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="SailBoatMesh" parent="SailBoat" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.462857, 0 )
