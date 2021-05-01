@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://LanternLight.gd" type="Script" id=1]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+period = 1.4
+
+[sub_resource type="SphereShape" id=2]
+radius = 33.8164
+
+[node name="LanternLight" type="OmniLight"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47175, 8.69951, 0.122144 )
+shadow_enabled = true
+shadow_bias = 0.25
+shadow_contact = 0.28
+omni_range = 49.8176
+script = ExtResource( 1 )
+noise = SubResource( 1 )
+
+[node name="LanternArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="LanternArea"]
+shape = SubResource( 2 )

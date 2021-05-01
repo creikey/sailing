@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://broken_wall_diff_1k.jpg" type="Texture" id=1]
 [ext_resource path="res://Rocks.glb" type="PackedScene" id=2]
@@ -11,7 +11,16 @@ shader_param/use_texture = true
 shader_param/period = 0.145
 shader_param/tex = ExtResource( 1 )
 
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.813695, 1, 1.3996 )
+
 [node name="Rocks" instance=ExtResource( 2 )]
 
 [node name="Rock1" parent="." index="0"]
 material_override = SubResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.224613 )
+shape = SubResource( 2 )
