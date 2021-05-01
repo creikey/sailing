@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://broken_wall_diff_1k.jpg" type="Texture" id=1]
+[ext_resource path="res://Rocks.glb" type="PackedScene" id=2]
+[ext_resource path="res://SteppedShading.shader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 3 )
+shader_param/albedo = Color( 1, 1, 1, 1 )
+shader_param/use_texture = true
+shader_param/period = 0.145
+shader_param/tex = ExtResource( 1 )
+
+[node name="Rocks" instance=ExtResource( 2 )]
+
+[node name="Rock1" parent="." index="0"]
+material_override = SubResource( 1 )
