@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://PlaneSteppedShading.tres" type="Material" id=1]
 [ext_resource path="res://Sailboat.tscn" type="PackedScene" id=2]
@@ -20,11 +20,14 @@ glow_strength = 2.0
 [sub_resource type="OpenSimplexNoise" id=3]
 period = 1.4
 
-[sub_resource type="PhysicsMaterial" id=4]
-bounce = 0.6
-
 [sub_resource type="BoxShape" id=5]
 extents = Vector3( 1.76229, 0.772962, 1.41506 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.57749, 0.772962, 0.623101 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.137345, 0.772962, 0.623101 )
 
 [sub_resource type="CubeMesh" id=6]
 size = Vector3( 2, 0.5, 0.5 )
@@ -144,18 +147,23 @@ transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -
 [node name="Rock4" parent="Rocks/RockGroup5" instance=ExtResource( 7 )]
 transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
 
-[node name="SailBoat" type="RigidBody" parent="."]
-transform = Transform( -0.997971, 0, -0.0636615, 0, 1, 0, 0.0636615, 0, -0.997971, 0, -0.268, 0 )
-physics_material_override = SubResource( 4 )
-axis_lock_angular_x = true
-axis_lock_angular_z = true
-linear_damp = 1.1
-angular_damp = 1.0
+[node name="SailBoat" type="KinematicBody" parent="."]
+transform = Transform( -0.997971, 0, -0.0636615, 0, 1, 0, 0.0636615, 0, -0.997971, 0, 1.09005, 0 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape" type="CollisionShape" parent="SailBoat"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
 shape = SubResource( 5 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="SailBoat"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.883, 0, 0 )
+shape = SubResource( 9 )
+disabled = true
+
+[node name="CollisionShape3" type="CollisionShape" parent="SailBoat"]
+transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 2.618, 0, 0 )
+shape = SubResource( 10 )
+disabled = true
 
 [node name="SailBoatMesh" parent="SailBoat" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.462857, 0 )
@@ -164,6 +172,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.462857, 0 )
 
 [node name="RudderPosition" type="Position3D" parent="SailBoat"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9906, 0, -0.126982 )
+
+[node name="BuoyancyPoints" type="Spatial" parent="SailBoat"]
 
 [node name="WindDirectionIndicator" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11904, 0, 3.47717 )
@@ -176,3 +186,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767219, 0, 0 )
 material_override = SubResource( 7 )
 mesh = SubResource( 8 )
 material/0 = null
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.891323, 0.453368, 0, -0.453368, 0.891323, 0, 0, 0 )
+shadow_enabled = true

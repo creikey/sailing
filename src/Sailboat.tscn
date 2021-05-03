@@ -1,9 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Sailboat.glb" type="PackedScene" id=1]
 [ext_resource path="res://SteppedShading.shader" type="Shader" id=2]
 [ext_resource path="res://brown_planks_05_diff_1k.jpg" type="Texture" id=3]
 [ext_resource path="res://SailBoatMesh.gd" type="Script" id=4]
+[ext_resource path="res://SailSteppdShading.shader" type="Shader" id=5]
+
+[sub_resource type="OpenSimplexNoise" id=4]
+period = 6.9
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
@@ -19,13 +23,14 @@ shader_param/use_texture = false
 shader_param/period = 0.145
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 2 )
+shader = ExtResource( 5 )
 shader_param/albedo = Color( 1, 1, 1, 1 )
 shader_param/use_texture = false
 shader_param/period = 0.145
 
 [node name="SailBoatMesh" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
+_wind_noise = SubResource( 4 )
 
 [node name="Hull" parent="." index="0"]
 material/0 = SubResource( 1 )
@@ -35,3 +40,4 @@ material_override = SubResource( 2 )
 
 [node name="Sail" parent="Mast" index="0"]
 material_override = SubResource( 3 )
+"blend_shapes/Key 1" = -1.0
