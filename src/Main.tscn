@@ -3,7 +3,7 @@
 [ext_resource path="res://PlaneSteppedShading.tres" type="Material" id=1]
 [ext_resource path="res://Sailboat.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CameraPivot.gd" type="Script" id=3]
-[ext_resource path="res://SailBoat.gd" type="Script" id=4]
+[ext_resource path="res://Sailboat.gd" type="Script" id=4]
 [ext_resource path="res://LanternLight.gd" type="Script" id=5]
 [ext_resource path="res://WindDirectionIndicator.gd" type="Script" id=6]
 [ext_resource path="res://Rocks.tscn" type="PackedScene" id=7]
@@ -20,22 +20,22 @@ glow_strength = 2.0
 [sub_resource type="OpenSimplexNoise" id=3]
 period = 1.4
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=4]
 extents = Vector3( 1.76229, 0.772962, 1.41506 )
 
-[sub_resource type="BoxShape" id=9]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 0.57749, 0.772962, 0.623101 )
 
-[sub_resource type="BoxShape" id=10]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 0.137345, 0.772962, 0.623101 )
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=7]
 size = Vector3( 2, 0.5, 0.5 )
 
-[sub_resource type="SpatialMaterial" id=7]
+[sub_resource type="SpatialMaterial" id=8]
 albedo_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="CubeMesh" id=8]
+[sub_resource type="CubeMesh" id=9]
 size = Vector3( 0.6, 0.7, 0.7 )
 
 [node name="Main" type="Spatial"]
@@ -66,7 +66,7 @@ noise = SubResource( 3 )
 [node name="CameraPivot" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.87224, 0.489078, 0, -0.489078, 0.87224, 0, 0, 0 )
 script = ExtResource( 3 )
-look_at_path = NodePath("../SailBoat/CameraTarget")
+look_at_path = NodePath("../Sailboat/CameraTarget")
 
 [node name="Camera" type="Camera" parent="CameraPivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
@@ -147,44 +147,44 @@ transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -
 [node name="Rock4" parent="Rocks/RockGroup5" instance=ExtResource( 7 )]
 transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
 
-[node name="SailBoat" type="KinematicBody" parent="."]
+[node name="Sailboat" type="KinematicBody" parent="."]
 transform = Transform( -0.997971, 0, -0.0636615, 0, 1, 0, 0.0636615, 0, -0.997971, 0, 1.09005, 0 )
 script = ExtResource( 4 )
 
-[node name="CollisionShape" type="CollisionShape" parent="SailBoat"]
+[node name="CollisionShape" type="CollisionShape" parent="Sailboat"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
-[node name="CollisionShape2" type="CollisionShape" parent="SailBoat"]
+[node name="CollisionShape2" type="CollisionShape" parent="Sailboat"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 1.883, 0, 0 )
-shape = SubResource( 9 )
+shape = SubResource( 5 )
 disabled = true
 
-[node name="CollisionShape3" type="CollisionShape" parent="SailBoat"]
+[node name="CollisionShape3" type="CollisionShape" parent="Sailboat"]
 transform = Transform( 1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 2.618, 0, 0 )
-shape = SubResource( 10 )
+shape = SubResource( 6 )
 disabled = true
 
-[node name="SailBoatMesh" parent="SailBoat" instance=ExtResource( 2 )]
+[node name="SailboatMesh" parent="Sailboat" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.462857, 0 )
 
-[node name="CameraTarget" type="Spatial" parent="SailBoat"]
+[node name="CameraTarget" type="Spatial" parent="Sailboat"]
 
-[node name="RudderPosition" type="Position3D" parent="SailBoat"]
+[node name="RudderPosition" type="Position3D" parent="Sailboat"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9906, 0, -0.126982 )
 
-[node name="BuoyancyPoints" type="Spatial" parent="SailBoat"]
+[node name="BuoyancyPoints" type="Spatial" parent="Sailboat"]
 
 [node name="WindDirectionIndicator" type="MeshInstance" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11904, 0, 3.47717 )
-mesh = SubResource( 6 )
+mesh = SubResource( 7 )
 material/0 = null
 script = ExtResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="WindDirectionIndicator"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767219, 0, 0 )
-material_override = SubResource( 7 )
-mesh = SubResource( 8 )
+material_override = SubResource( 8 )
+mesh = SubResource( 9 )
 material/0 = null
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]

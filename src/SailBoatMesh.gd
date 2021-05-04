@@ -7,12 +7,16 @@ var sail_angle: float = 0.0 setget set_sail_angle
 var wind_influence: float = 0.5
 
 func set_sail_angle(new_sail_angle):
-	sail_angle = clamp(new_sail_angle, -PI/2.0, PI/2.0)
+#	sail_angle = clamp(new_sail_angle, -PI/2.0, PI/2.0)
+	sail_angle = new_sail_angle
 	if has_node("Mast"):
 		$Mast.rotation.y = sail_angle
 
-func get_global_sail_angle() -> float:
-	return global_transform.basis.get_euler().y + sail_angle
+func get_sail_transform() -> Transform:
+	return $Mast.global_transform
+
+#func get_global_sail_angle() -> float:
+#	return global_transform.basis.get_euler().y + sail_angle
 
 func _process(delta):
 	_t += delta
