@@ -5,7 +5,6 @@ const float PI = 3.14159;
 uniform sampler2D tex;
 uniform vec4 albedo: hint_color = vec4(1.0);
 uniform bool use_texture = false;
-uniform float period = 0.145;
 const int bayer_n = 4;
 const float bayer_r = 2.0;
 
@@ -42,10 +41,6 @@ float index(mat4 m, int x, int y) {
 
 }
 
-float triangle(float n) {
-	float a = 1.0;
-	return ((2.0*a)/PI) * asin(sin( ((2.0*PI)/period) * n ));
-}
 
 void light() {
 	//DIFFUSE_LIGHT = ;

@@ -4,7 +4,7 @@ export var _wind_noise: OpenSimplexNoise
 
 var _t: float = 0.0
 var sail_angle: float = 0.0 setget set_sail_angle
-var wind_influence: float = 0.5
+var wind_influence: float = 0.1
 
 func set_sail_angle(new_sail_angle):
 #	sail_angle = clamp(new_sail_angle, -PI/2.0, PI/2.0)
