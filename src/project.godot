@@ -24,7 +24,7 @@ netlify/subdomain="naughty-saha-efa936.netlify.app"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/automatic_deploy/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/automatic_deploy/plugin.cfg", "res://addons/quickenv/plugin.cfg" )
 
 [input]
 

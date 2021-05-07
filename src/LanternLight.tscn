@@ -2,23 +2,28 @@
 
 [ext_resource path="res://LanternLight.gd" type="Script" id=1]
 
-[sub_resource type="OpenSimplexNoise" id=1]
+[sub_resource type="OpenSimplexNoise" id=10]
 period = 1.4
 
 [sub_resource type="CylinderShape" id=2]
 radius = 38.368
 height = 100.0
 
-[node name="LanternLight" type="OmniLight"]
+[node name="LanternLight" type="OmniLight" groups=[
+"lantern_lights",
+]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47175, 8.69951, 0.122144 )
 shadow_enabled = true
 shadow_bias = 0.25
 shadow_contact = 0.28
 omni_range = 50.0
 script = ExtResource( 1 )
-noise = SubResource( 1 )
+noise = SubResource( 10 )
 
 [node name="LanternArea" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="LanternArea"]
 shape = SubResource( 2 )
+
+[connection signal="body_entered" from="LanternArea" to="." method="_on_LanternArea_body_entered"]
+[connection signal="body_exited" from="LanternArea" to="." method="_on_LanternArea_body_exited"]

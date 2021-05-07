@@ -1,0 +1,227 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://PlaneSteppedShading.tres" type="Material" id=1]
+[ext_resource path="res://LanternLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Rocks.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LightSwitch.gd" type="Script" id=4]
+[ext_resource path="res://WindDirectionIndicator.gd" type="Script" id=5]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 1000, 1000 )
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 2, 0.5, 0.5 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.6, 0.7, 0.7 )
+
+[sub_resource type="OpenSimplexNoise" id=5]
+period = 1.4
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 8.12112, 8.44152, 17.1083 )
+
+[node name="Level" type="Spatial"]
+
+[node name="Floor" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.23376 )
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="WindDirectionIndicator" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.11904, 0, 3.47717 )
+mesh = SubResource( 2 )
+material/0 = null
+script = ExtResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WindDirectionIndicator"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767219, 0, 0 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="WindDirectionIndicator2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.6258, 0, 11.4598 )
+mesh = SubResource( 2 )
+material/0 = null
+script = ExtResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="WindDirectionIndicator2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767219, 0, 0 )
+material_override = SubResource( 3 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="LanternLight" parent="." instance=ExtResource( 2 )]
+omni_range = 24.4015
+noise = SubResource( 5 )
+
+[node name="LanternLight2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.1876, 8.69951, 1.43602 )
+omni_range = 24.9727
+noise = SubResource( 5 )
+
+[node name="LightSwitch" type="Area" parent="LanternLight2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000716686, -8.69951, -0.275036 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+path = NodePath("../../LanternLight3")
+
+[node name="CollisionShape" type="CollisionShape" parent="LanternLight2/LightSwitch"]
+shape = SubResource( 6 )
+
+[node name="LanternLight3" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.1069, 8.69951, -41.5338 )
+omni_range = 24.9727
+noise = SubResource( 5 )
+off = true
+
+[node name="Rocks" type="Spatial" parent="."]
+
+[node name="RockGroup" type="Spatial" parent="Rocks"]
+
+[node name="Rock" parent="Rocks/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="RockGroup6" type="Spatial" parent="Rocks"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.2371, 0, 0 )
+
+[node name="Rock" parent="Rocks/RockGroup6" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup6" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup6" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup6" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="RockGroup7" type="Spatial" parent="Rocks"]
+transform = Transform( 0.99956, 0, 0.0296487, 0, 1, 0, -0.0296487, 0, 0.99956, -66.566, 0, 5.56312 )
+
+[node name="Rock" parent="Rocks/RockGroup7" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup7" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup7" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup7" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="RockGroup9" type="Spatial" parent="Rocks"]
+transform = Transform( 0.891655, 0, 0.452715, 0, 1, 0, -0.452715, 0, 0.891655, -63.9628, 0, 13.2601 )
+
+[node name="Rock" parent="Rocks/RockGroup9" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup9" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup9" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup9" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87301, -0.0241094, 0.272572 )
+
+[node name="RockGroup8" type="Spatial" parent="Rocks"]
+transform = Transform( 0.896455, 0, -0.443134, 0, 1, 0, 0.443134, 0, 0.896455, -65.3218, 0, -8.72653 )
+
+[node name="Rock" parent="Rocks/RockGroup8" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup8" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup8" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup8" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="RockGroup2" type="Spatial" parent="Rocks"]
+transform = Transform( 0.677555, 0.128026, 0.724244, 0.10264, -0.991556, 0.0792551, 0.728275, 0.020637, -0.684974, -0.0463319, -1.39438, -0.417027 )
+
+[node name="Rock" parent="Rocks/RockGroup2" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, -1.86265e-09, 0.99452, 2.04891e-08, 1, -4.65661e-09, -0.99452, 2.79397e-09, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup2" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup2" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847935, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup2" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272572 )
+
+[node name="RockGroup3" type="Spatial" parent="Rocks"]
+transform = Transform( -0.156607, 0, 0.987661, 0, 1, 0, -0.987661, 0, -0.156607, 0.179147, 0, -0.264048 )
+
+[node name="Rock" parent="Rocks/RockGroup3" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup3" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup3" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup3" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="RockGroup4" type="Spatial" parent="Rocks"]
+transform = Transform( 0.613179, 0.000332694, -0.789944, 0.10264, -0.991556, 0.0792551, -0.783247, -0.129678, -0.608036, -0.225478, -1.39438, -0.152979 )
+
+[node name="Rock" parent="Rocks/RockGroup4" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup4" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup4" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup4" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="RockGroup5" type="Spatial" parent="Rocks"]
+transform = Transform( -0.263469, 0, -0.964668, 0, 1, 0, 0.964668, 0, -0.263469, -0.230415, 0, -0.241103 )
+
+[node name="Rock" parent="Rocks/RockGroup5" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="Rocks/RockGroup5" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="Rocks/RockGroup5" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="Rocks/RockGroup5" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="Spawnpoint" type="Position3D" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+
+[connection signal="body_entered" from="LanternLight2/LightSwitch" to="LanternLight2/LightSwitch" method="_on_LightSwitch_body_entered"]
