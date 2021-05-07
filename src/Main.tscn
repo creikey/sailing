@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SailboatMesh.tscn" type="PackedScene" id=2]
 [ext_resource path="res://CameraPivot.gd" type="Script" id=3]
 [ext_resource path="res://Sailboat.gd" type="Script" id=4]
 [ext_resource path="res://StaticPlayer.gd" type="Script" id=5]
+[ext_resource path="res://wood-snap.wav" type="AudioStream" id=6]
 [ext_resource path="res://static.wav" type="AudioStream" id=9]
 [ext_resource path="res://Main.gd" type="Script" id=10]
 
@@ -59,6 +60,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.462857, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9906, 0, -0.126982 )
 
 [node name="BuoyancyPoints" type="Spatial" parent="Sailboat"]
+
+[node name="CrackPlayer" type="AudioStreamPlayer" parent="Sailboat"]
+stream = ExtResource( 6 )
+bus = "snap"
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.891323, 0.453368, 0, -0.453368, 0.891323, 0, 0, 0 )

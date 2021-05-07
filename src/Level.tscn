@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://PlaneSteppedShading.tres" type="Material" id=1]
 [ext_resource path="res://LanternLight.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Rocks.tscn" type="PackedScene" id=3]
-[ext_resource path="res://LightSwitch.gd" type="Script" id=4]
 [ext_resource path="res://WindDirectionIndicator.gd" type="Script" id=5]
+[ext_resource path="res://LightSwitch.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 size = Vector2( 1000, 1000 )
@@ -20,9 +20,6 @@ size = Vector3( 0.6, 0.7, 0.7 )
 
 [sub_resource type="OpenSimplexNoise" id=5]
 period = 1.4
-
-[sub_resource type="BoxShape" id=6]
-extents = Vector3( 8.12112, 8.44152, 17.1083 )
 
 [node name="Level" type="Spatial"]
 
@@ -68,22 +65,89 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -48.1876, 8.69951, 1.43602 )
 omni_range = 24.9727
 noise = SubResource( 5 )
 
-[node name="LightSwitch" type="Area" parent="LanternLight2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000716686, -8.69951, -0.275036 )
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_group_": true
-}
-path = NodePath("../../LanternLight3")
-
-[node name="CollisionShape" type="CollisionShape" parent="LanternLight2/LightSwitch"]
-shape = SubResource( 6 )
+[node name="LightSwitch" parent="LanternLight2" instance=ExtResource( 6 )]
+paths = [ NodePath("../../LanternLight3") ]
 
 [node name="LanternLight3" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.1069, 8.69951, -41.5338 )
 omni_range = 24.9727
 noise = SubResource( 5 )
 off = true
+
+[node name="LightSwitch" parent="LanternLight3" instance=ExtResource( 6 )]
+paths = [ NodePath("../../LanternLight4"), NodePath("../../LanternLight5") ]
+
+[node name="LanternLight4" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -109.014, 8.69951, -41.5338 )
+omni_range = 24.9727
+noise = SubResource( 5 )
+off = true
+
+[node name="RockGroup" type="Spatial" parent="LanternLight4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0534, -8.65554, 1.35618 )
+
+[node name="Rock" parent="LanternLight4/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="LanternLight4/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="LanternLight4/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="LanternLight4/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="LanternLight5" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -174.82, 8.69951, -41.5338 )
+omni_range = 24.9727
+noise = SubResource( 5 )
+off = true
+
+[node name="RockGroup" type="Spatial" parent="LanternLight5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0534, -8.65554, 1.35618 )
+
+[node name="Rock" parent="LanternLight5/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="LanternLight5/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="LanternLight5/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="LanternLight5/RockGroup" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="RockGroup2" type="Spatial" parent="LanternLight5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05339, -8.65554, -12.2816 )
+
+[node name="Rock" parent="LanternLight5/RockGroup2" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="LanternLight5/RockGroup2" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="LanternLight5/RockGroup2" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="LanternLight5/RockGroup2" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
+
+[node name="RockGroup3" type="Spatial" parent="LanternLight5"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.05339, -8.65554, 13.735 )
+
+[node name="Rock" parent="LanternLight5/RockGroup3" instance=ExtResource( 3 )]
+transform = Transform( 0.104546, 0, 0.99452, 0, 1, 0, -0.99452, 0, 0.104546, 6.01701, -0.538852, 1.73994 )
+
+[node name="Rock2" parent="LanternLight5/RockGroup3" instance=ExtResource( 3 )]
+transform = Transform( -0.0699694, -0.625852, 0.776797, 0.966851, -0.234243, -0.101637, 0.245569, 0.743935, 0.621496, 6.32558, -0.538852, -0.736328 )
+
+[node name="Rock3" parent="LanternLight5/RockGroup3" instance=ExtResource( 3 )]
+transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -0.0917302, 0.0813269, -0.0948173, 0.992167, 6.32558, -0.538852, -1.93616 )
+
+[node name="Rock4" parent="LanternLight5/RockGroup3" instance=ExtResource( 3 )]
+transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
 
 [node name="Rocks" type="Spatial" parent="."]
 
@@ -223,5 +287,3 @@ transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258
 
 [node name="Spawnpoint" type="Position3D" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
-
-[connection signal="body_entered" from="LanternLight2/LightSwitch" to="LanternLight2/LightSwitch" method="_on_LightSwitch_body_entered"]
