@@ -19,6 +19,13 @@ var _dying: bool = false
 func calc_wing_influence(x: float, offset: float) -> float:
 	return (1.0 - pow( ( (x + 0.2*offset) *5.0) , 10.0))
 
+func damage(amount: float, push_back: bool = true):
+	if not _dying: # avoid repeat crack sounds while respawning
+		$CrackPlayer.play()
+	if push_back:
+		_vel *= -0.8
+	_health -= amount
+
 # used for stuff like increased woosh as player gets closer to death
 # this is assumed to output 0.0 < health < 1.0
 func get_health() -> float:
@@ -93,10 +100,9 @@ func _physics_process(delta):
 	
 	var collision = move_and_collide(_vel * delta)
 	if collision != null:
-		if not _dying: # avoid repeat crack sounds while respawning
-			$CrackPlayer.play()
-		_health -= 0.8
-		_vel *= -0.8
+		damage(0.8)
+		
+		
 #	_vel = move_and_slide(_vel, Vector3(0, 1, 0))
 #
 #	if get_slide_count() > 0:

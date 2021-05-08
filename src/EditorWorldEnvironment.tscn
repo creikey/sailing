@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://WorldEnvironment.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Environment" id=1]
+background_mode = 1
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 0.26
+ambient_light_sky_contribution = 0.12
+glow_intensity = 1.26
+glow_strength = 2.0
+
+[node name="EditorWorldEnvironment" instance=ExtResource( 1 )]
+environment = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 0.815976, 0.578085, 0, -0.578085, 0.815976, 0, 0, 0 )

@@ -10,6 +10,9 @@ onready var _base_range: float = omni_range
 
 var force_off: bool = false
 
+func switch_light():
+	off = not off
+
 func _ready():
 	$LanternArea/CollisionShape.shape = $LanternArea/CollisionShape.shape.duplicate(true)
 	$LanternArea/CollisionShape.shape.radius = _base_range/1.3

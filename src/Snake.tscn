@@ -1,0 +1,217 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://MeshSnake.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Snake.gd" type="Script" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.01433, 1, 2.59209 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 1.01433, 1, 1.44365 )
+
+[sub_resource type="SphereShape" id=3]
+radius = 112.979
+
+[sub_resource type="Animation" id=5]
+resource_name = "attack"
+length = 3.5
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CenterPivot:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CenterPivot:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -2.38, -0.25, 0, 0, -0.031301, -4.844, -0.25, 0, 0, 0, 4.47843, -0.68, -0.0301895, 0.88, 0.0150952, -7.43983, -0.02, -0.0626016, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.8, 1.9, 3 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CenterPivot:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("CenterPivot:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0.0103292, -0.25, 0, 0.05, 16.6582, 50.0033, -0.25, 0, 0.25, 0, -119.106, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.9, 3 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("CenterPivot:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("CenterPivot:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 4.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CenterPivot:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("CenterPivot:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( -2.355, -0.25, 0, 0.25, 0, 0.713977, -0.25, 0, 0.25, 0, -2.171, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("CenterPivot:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("CenterPivot:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("CenterPivot:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("CenterPivot:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="AnimationNodeAnimation" id=8]
+animation = "attack"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+advance_condition = "attack"
+xfade_time = 0.5
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+switch_mode = 2
+auto_advance = true
+xfade_time = 0.65
+
+[sub_resource type="AnimationNodeStateMachine" id=6]
+states/attack/node = SubResource( 8 )
+states/attack/position = Vector2( 521, 183 )
+states/idle/node = SubResource( 9 )
+states/idle/position = Vector2( 367, 152 )
+transitions = [ "idle", "attack", SubResource( 10 ), "attack", "idle", SubResource( 11 ) ]
+start_node = "idle"
+graph_offset = Vector2( -221, 65 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=7]
+
+[node name="Snake" type="Spatial"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, -5.32567, 0 )
+script = ExtResource( 2 )
+
+[node name="CenterPivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.661534, 0 )
+
+[node name="BodyArea" type="Area" parent="CenterPivot"]
+
+[node name="CollisionShape" type="CollisionShape" parent="CenterPivot/BodyArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.08809, -2.77275 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="CenterPivot/BodyArea"]
+transform = Transform( 1, 0, 0, 0, 0.886228, -0.463249, 0, 0.46325, 0.886228, 0, 4.6934, 0.518297 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="CenterPivot/BodyArea"]
+transform = Transform( 1, 0, 0, 0, 0.811299, -0.584632, 0, 0.584632, 0.811299, 0, 3.19897, 3.2511 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="CenterPivot/BodyArea"]
+transform = Transform( 1, 0, 0, 0, 0.691753, -0.722134, 0, 0.722135, 0.691753, 0, 1.26501, 5.76962 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="CenterPivot/BodyArea"]
+transform = Transform( 1, 0, 0, 0, 0.691753, -0.722134, 0, 0.722135, 0.691753, 0, -1.03561, 7.61014 )
+shape = SubResource( 2 )
+
+[node name="SnakeMesh" parent="CenterPivot" instance=ExtResource( 1 )]
+transform = Transform( 3, -1.2107e-07, 2.96167e-08, 1.2107e-07, 2.66122, -1.38487, 2.96166e-08, 1.38487, 2.66122, 0, 4.748, -3.579 )
+
+[node name="PlayerDetectionArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="PlayerDetectionArea"]
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/attack = SubResource( 5 )
+anims/idle = SubResource( 4 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 6 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 7 )
+parameters/conditions/attack = false

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://LanternLight.gd" type="Script" id=1]
 
-[sub_resource type="OpenSimplexNoise" id=10]
+[sub_resource type="OpenSimplexNoise" id=1]
 period = 1.4
 
 [sub_resource type="CylinderShape" id=2]
@@ -14,11 +14,12 @@ height = 100.0
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47175, 8.69951, 0.122144 )
 shadow_enabled = true
-shadow_bias = 0.25
-shadow_contact = 0.28
+shadow_bias = 0.1
+shadow_contact = 0.17
 omni_range = 50.0
+omni_shadow_mode = 0
 script = ExtResource( 1 )
-noise = SubResource( 10 )
+noise = SubResource( 1 )
 
 [node name="LanternArea" type="Area" parent="."]
 

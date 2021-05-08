@@ -30,6 +30,7 @@ look_at_path = NodePath("../Sailboat/CameraTarget")
 
 [node name="Camera" type="Camera" parent="CameraPivot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20 )
+far = 500.0
 
 [node name="Sailboat" type="KinematicBody" parent="." groups=[
 "players",

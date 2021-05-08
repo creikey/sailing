@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=2]
 
-[sub_resource type="Environment" id=2]
+[sub_resource type="Environment" id=1]
 background_mode = 1
 glow_intensity = 1.26
 glow_strength = 2.0
 
 [node name="WorldEnvironment" type="WorldEnvironment"]
-environment = SubResource( 2 )
+environment = SubResource( 1 )
