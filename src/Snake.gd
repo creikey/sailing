@@ -6,6 +6,9 @@ onready var _body: Area = $CenterPivot/BodyArea
 onready var _base_height = translation.y
 var _cur_movement := Vector3() # for keeping the direction of movement when in air
 
+func _ready():
+	$AnimationTree.active = true # so animation in editor doesn't pollute git log
+
 # ugly damage code. sad!
 var _counter: float = 0.0
 func _physics_process(delta):

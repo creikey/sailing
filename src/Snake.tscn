@@ -172,7 +172,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, -5.32567, 0 )
 script = ExtResource( 2 )
 
 [node name="CenterPivot" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.661534, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0.438765, 0 )
 
 [node name="BodyArea" type="Area" parent="CenterPivot"]
 
@@ -212,6 +212,5 @@ anims/idle = SubResource( 4 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 6 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 parameters/playback = SubResource( 7 )
 parameters/conditions/attack = false
