@@ -20,7 +20,7 @@ func get_sail_transform() -> Transform:
 
 func _process(delta):
 	_t += delta
-	$Mast/Sail.set("blend_shapes/Key 1", (_wind_noise.get_noise_1d(_t*5.0))*0.1 + clamp(wind_influence, 0.0, 1.0))
+#	$Mast/Sail.set("blend_shapes/Key 1", (_wind_noise.get_noise_1d(_t*5.0))*0.1 + clamp(wind_influence, 0.0, 1.0))
 #	print($Mast/Sail.get("blend_shapes/Key 1"))
 	#rotation.x = sin(_t*1.0 + cos(_t*0.5))*0.1
 	#rotation.y = cos(_t*0.9 + sin(_t*0.5 + cos(_t*0.5)))*0.07

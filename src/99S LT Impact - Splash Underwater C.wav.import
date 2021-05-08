@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/99S LT Impact - Splash Underwater C.wav-7414dd79577f25f206d4eb5c2122084c.sample"
+
+[deps]
+
+source_file="res://99S LT Impact - Splash Underwater C.wav"
+dest_files=[ "res://.import/99S LT Impact - Splash Underwater C.wav-7414dd79577f25f206d4eb5c2122084c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

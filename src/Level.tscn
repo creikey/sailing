@@ -7,10 +7,10 @@
 [ext_resource path="res://WindDirectionIndicator.gd" type="Script" id=5]
 [ext_resource path="res://LightSwitch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://SnakeLane.gd" type="Script" id=7]
-[ext_resource path="res://SailboatMesh.tscn" type="PackedScene" id=8]
+[ext_resource path="res://BrokenSailboat.tscn" type="PackedScene" id=8]
 
 [sub_resource type="PlaneMesh" id=1]
-size = Vector2( 1000, 1000 )
+size = Vector2( 2500, 2500 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 2, 0.5, 0.5 )
@@ -166,53 +166,121 @@ script = ExtResource( 7 )
 [node name="LanternLight" parent="SnakeLane" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.47176, 8.69951, 0.122147 )
 omni_range = 29.9348
+off = true
+
+[node name="BrokenSailboat" parent="SnakeLane/LanternLight" instance=ExtResource( 8 )]
+transform = Transform( 0.634966, 0.0824144, -0.768132, 0.73701, 0.233445, 0.634287, 0.231591, -0.968871, 0.0874899, 4.16734, -10.9293, -9.09399 )
 
 [node name="LanternLight2" parent="SnakeLane" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.2745, 8.69951, 0.122143 )
 shadow_bias = 0.45
 shadow_contact = 0.18
+off = true
+
+[node name="BrokenSailboat2" parent="SnakeLane/LanternLight2" instance=ExtResource( 8 )]
+transform = Transform( 0.0743252, -0.296907, 0.95201, 0.986917, -0.115064, -0.112936, 0.143074, 0.947949, 0.28447, 9.99057, -10.9293, 12.0961 )
+
+[node name="BrokenSailboat3" parent="SnakeLane/LanternLight2" instance=ExtResource( 8 )]
+transform = Transform( 0.255089, -0.962504, 0.0922864, 0.917795, 0.271059, 0.290138, -0.304274, 0.0106887, 0.952525, 2.00497, -10.9293, -13.6172 )
 
 [node name="LanternLight3" parent="SnakeLane" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -82.8819, 8.69951, 0.122143 )
 shadow_bias = 0.45
 shadow_contact = 0.18
+off = true
+
+[node name="BrokenSailboat3" parent="SnakeLane/LanternLight3" instance=ExtResource( 8 )]
+transform = Transform( 0.255089, -0.962504, 0.0922864, 0.917795, 0.271059, 0.290138, -0.304274, 0.0106887, 0.952525, 2.00497, -10.9293, -13.6172 )
+
+[node name="BrokenSailboat4" parent="SnakeLane/LanternLight3" instance=ExtResource( 8 )]
+transform = Transform( 0.904156, -0.425844, -0.0340356, 0.343248, 0.771592, -0.535563, 0.254328, 0.47255, 0.84381, 6.40332, -10.4041, 14.5595 )
+
+[node name="BrokenSailboat5" parent="SnakeLane/LanternLight3" instance=ExtResource( 8 )]
+transform = Transform( 0.358109, -0.379185, 0.853216, 0.285971, -0.825359, -0.486831, 0.888807, 0.418334, -0.187133, -6.73969, -7.94344, 9.11136 )
 
 [node name="LanternLight4" parent="SnakeLane" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -117.344, 8.69951, 0.122143 )
 shadow_bias = 0.45
 shadow_contact = 0.18
+off = true
+
+[node name="BrokenSailboat5" parent="SnakeLane/LanternLight4" instance=ExtResource( 8 )]
+transform = Transform( 0.94554, 0.325486, 0.00360379, 0.285971, -0.825359, -0.486831, -0.155482, 0.461349, -0.873489, -6.73969, -7.94344, 9.11136 )
+
+[node name="BrokenSailboat6" parent="SnakeLane/LanternLight4" instance=ExtResource( 8 )]
+transform = Transform( 0.941748, 0.148228, 0.301894, 0.285971, -0.825359, -0.486831, 0.177009, 0.544805, -0.819668, 6.05984, -7.88466, -8.84628 )
+
+[node name="BrokenSailboat7" parent="SnakeLane/LanternLight4" instance=ExtResource( 8 )]
+transform = Transform( 0.948215, -0.214086, -0.234641, -0.268627, -0.146308, -0.952069, 0.169494, 0.965796, -0.196241, 11.5637, -8.06871, 7.89153 )
 
 [node name="LanternLight5" parent="SnakeLane" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -158.649, 8.69951, -5.99619 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -162.729, 8.69951, -5.21689 )
 shadow_bias = 0.45
 shadow_contact = 0.18
+off = true
+
+[node name="BrokenSailboat5" parent="SnakeLane/LanternLight5" instance=ExtResource( 8 )]
+transform = Transform( 0.358109, -0.379185, 0.853216, 0.285971, -0.825359, -0.486831, 0.888807, 0.418334, -0.187133, 6.56137, -7.94344, 10.0713 )
+
+[node name="BrokenSailboat6" parent="SnakeLane/LanternLight5" instance=ExtResource( 8 )]
+transform = Transform( 0.716194, 0.0915675, -0.691869, 0.267268, -0.951766, 0.150701, -0.644697, -0.292846, -0.706122, 5.23138, -7.94344, -4.67406 )
+
+[node name="BrokenSailboat7" parent="SnakeLane/LanternLight5" instance=ExtResource( 8 )]
+transform = Transform( -0.177583, -0.20236, -0.963077, 0.267268, -0.951766, 0.150701, -0.947118, -0.230638, 0.223103, 1.56555, -8.30304, -17.4186 )
 
 [node name="LanternLight6" parent="SnakeLane" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -189.58, 8.69951, -28.8168 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -189.223, 8.69951, 29.1053 )
 shadow_bias = 0.45
 shadow_contact = 0.18
+off = true
+
+[node name="BrokenSailboat7" parent="SnakeLane/LanternLight6" instance=ExtResource( 8 )]
+transform = Transform( -0.835752, -0.472421, -0.279889, 0.478195, -0.876719, 0.051906, -0.269905, -0.090461, 0.958629, -11.6102, -8.94252, -13.94 )
+
+[node name="BrokenSailboat8" parent="SnakeLane/LanternLight6" instance=ExtResource( 8 )]
+transform = Transform( -0.248879, -0.25394, 0.934654, 0.40947, -0.90212, -0.136068, 0.877721, 0.348848, 0.328499, 0.358063, -8.94252, 0.560547 )
+
+[node name="BrokenSailboat9" parent="SnakeLane/LanternLight6" instance=ExtResource( 8 )]
+transform = Transform( -0.310734, 0.065344, 0.94825, -0.0414316, -0.997618, 0.0551695, 0.949594, -0.0221442, 0.312701, -5.83731, -6.96369, -8.12 )
+
+[node name="BrokenSailboat10" parent="SnakeLane/LanternLight6" instance=ExtResource( 8 )]
+transform = Transform( -0.462622, -0.422653, 0.779326, 0.713238, -0.69954, 0.0440081, 0.526569, 0.576202, 0.625075, 9.76755, -8.65861, 9.46933 )
+
+[node name="BrokenSailboat11" parent="SnakeLane/LanternLight6" instance=ExtResource( 8 )]
+transform = Transform( -0.181008, -0.24448, -0.952612, 0.713238, -0.69954, 0.0440081, -0.677148, -0.671472, 0.300995, 15.2124, -8.29665, 14.6265 )
 
 [node name="LanternLight7" parent="SnakeLane" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -210.179, 8.69951, -66.4639 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -222.558, 8.69951, 64.6925 )
 shadow_bias = 0.45
 shadow_contact = 0.18
+off = true
 
 [node name="LanternLight8" parent="SnakeLane" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -256.671, 8.69951, -90.749 )
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -272.09, 8.69951, 120.064 )
 shadow_bias = 0.45
 shadow_contact = 0.18
+off = true
 
-[node name="SailboatMesh" parent="SnakeLane" instance=ExtResource( 8 )]
-transform = Transform( -0.859438, -0.226318, -0.458418, -0.101546, 0.954381, -0.280794, 0.501054, -0.194774, -0.843213, -4.40396, -0.474349, -15.3661 )
+[node name="LanternLight9" parent="SnakeLane" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -348.477, 8.69951, 208.822 )
+shadow_bias = 0.45
+shadow_contact = 0.18
+off = true
 
-[node name="SailboatMesh2" parent="SnakeLane" instance=ExtResource( 8 )]
-transform = Transform( -0.861927, 0.201445, -0.465299, 0.0903859, 0.964035, 0.249933, 0.498913, 0.173368, -0.849135, -24.8125, -0.474348, 7.77432 )
+[node name="LanternLight10" parent="SnakeLane" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -435.772, 8.69951, 310.255 )
+shadow_bias = 0.45
+shadow_contact = 0.18
+off = true
 
-[node name="SailboatMesh3" parent="SnakeLane" instance=ExtResource( 8 )]
-transform = Transform( 0.00554517, -0.26922, -0.963063, -0.0970899, 0.958382, -0.268471, 0.995261, 0.0949923, -0.0208242, -36.6299, 0.126247, -10.14 )
+[node name="LanternLight11" parent="SnakeLane" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -519.558, 8.69951, 408.905 )
+shadow_bias = 0.45
+shadow_contact = 0.18
+off = true
 
-[node name="SailboatMesh4" parent="SnakeLane" instance=ExtResource( 8 )]
-transform = Transform( -0.761071, -0.245317, -0.600493, -0.0970899, 0.958382, -0.268471, 0.641363, -0.146024, -0.753215, -66.4887, -0.0112629, 7.89484 )
+[node name="Snake" parent="SnakeLane" instance=ExtResource( 4 )]
+transform = Transform( -0.778637, -0.0118269, -0.627362, 1.64779e-09, 0.999822, -0.0188484, 0.627474, -0.0146761, -0.778499, -120.617, -5.32101, -27.3707 )
 
 [node name="Rocks" type="Spatial" parent="."]
 
@@ -350,11 +418,8 @@ transform = Transform( -0.995848, 0.0331184, 0.0847936, -0.0408989, -0.994944, -
 [node name="Rock4" parent="Rocks/RockGroup5" instance=ExtResource( 3 )]
 transform = Transform( -0.833498, -0.016655, 0.552271, 0.190223, -0.94709, 0.258527, 0.518744, 0.320537, 0.792566, 6.87302, -0.0241094, 0.272573 )
 
-[node name="Spawnpoint3" type="Position3D" parent="."]
+[node name="Spawnpoint" type="Position3D" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 
-[node name="Snake" parent="." instance=ExtResource( 4 )]
-transform = Transform( -0.983508, 0.00340897, 0.18083, 1.64779e-09, 0.999822, -0.0188484, -0.180862, -0.0185376, -0.983333, -242.021, -5.321, -100.373 )
-
-[node name="Spawnpoint" type="Position3D" parent="."]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -235.906, 0, -47.2828 )
+[node name="Spawnpoint3" type="Position3D" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -269.599, -3.8147e-06, -81.7497 )

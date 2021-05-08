@@ -49,7 +49,7 @@ func _physics_process(delta):
 		emit_signal("dead")
 		_dying = true
 	if lights_in <= 0:
-		_health -= delta/2.0
+		_health -= delta/4.0
 	else:
 		_health += delta/8.0
 		_health = clamp(_health, 0.0, 1.0) 
